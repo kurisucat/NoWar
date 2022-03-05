@@ -7,11 +7,10 @@
 
 `<link rel="import" href="./include/_section.html" is="ui-import">` 直接导入
 
-```页脚
-
+```
+页脚
 <script src="./safari-polyfill.js"></script>
 <script src="./html-import.js"></script>
-
 ```
 
 原作：<a href="https://www.zhangxinxu.com/wordpress/?p=10009">https://www.zhangxinxu.com/wordpress/?p=10009</a>
