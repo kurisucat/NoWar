@@ -1,0 +1,133 @@
+<section class="nowar_banner">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <meta charset="utf-8" />
+
+    <p class="nowar_banner_title">#NoWar</p>
+    <p class="nowar_banner_infomation">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们不希望战争伤害到任何人，如乌克兰与俄罗斯公民。鄙视一切把政治立场挂在嘴上，却分不清何谓公共道德的人。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </p>
+
+    <style>
+        .nowar_banner {
+            width: 100%;
+            height: 2em;
+            display: inline;
+            white-space: nowrap;
+            border: 0px solid rgba(0, 0, 0, 0);
+            padding: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0, 0, 0, 0) 2%,
+                rgba(255, 255, 255, 0.01) 2.1%
+            );
+            overflow: hidden;
+            display: flex;
+            scroll-behavior: smooth;
+            align-items: center; /* 垂直居中 */
+        }
+
+        body {
+            margin: 0;
+        }
+        .nowar_banner_title {
+            background: linear-gradient(
+                120deg,
+                rgba(0, 0, 0, 1) 85%,
+                rgba(255, 255, 255, 0.01) 85.15%
+            );
+            color: white;
+            display: inline-block;
+            margin: 0 0 0 1%;
+            font-size: 1em;
+            z-index: 99;
+        }
+        .nowar_banner_title::before {
+            content: "\00A0\00A0";
+            width: 3px;
+            margin: 0 0 0 0px;
+            background: rgba(0, 0, 0, 1);
+            pointer-events: none;
+        }
+        .nowar_banner_title::after {
+            content: "\00A0\00A0\00A0\00A0\00A0";
+            width: 3px;
+            margin: 0 0 0 0px;
+            background: linear-gradient(
+                120deg,
+                rgba(0, 0, 0, 1) 50%,
+                rgba(255, 255, 255, 0.01) 50.15%
+            );
+            pointer-events: none;
+        }
+        .nowar_banner_infomation {
+            width: 200vw;
+            padding: 0 0 0 -6vw;
+            background: white;
+            color: black;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: auto;
+            font-size: 1em;
+            /*animation:move 4s linear infinite;*/
+            transform: translateX(-3vw);
+            /*overflow-x: hidden;*/
+            scroll-behavior: smooth;
+            overscroll-behavior: contain;
+            -ms-scroll-chaining: contain;
+            margin: 0 0 0 0;
+        }
+        .nowar_banner_infomation::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nowar_banner_infomation::selection {
+            background: rgba(0, 0, 0, 1);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .nowar_banner_infomation::-moz-selection {
+            background: rgba(0, 0, 0, 1);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .nowar_banner_infomation::-webkit-selection {
+            background: rgba(0, 0, 0, 1);
+            color: rgba(255, 255, 255, 1);
+        }
+        .nowar_banner::after {
+            background-image: linear-gradient(
+                to left,
+                rgba(255, 255, 255, 1) 5%,
+                rgba(255, 255, 255, 0) 10%
+            );
+            position: absolute;
+            /* bottom: 0; */
+            right: 0;
+            width: 120vw;
+            /*left: 0;*/
+            height: 1.25em;
+            content: "";
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+    <script>
+        let container = document.querySelector(".nowar_banner_infomation");
+        container.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            container.scrollLeft += event.deltaY;
+        });
+    </script>
+</section>

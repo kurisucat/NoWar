@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试rel="import"的能力</title>
+    <style>[is="ui-import"] {
+        display: block;
+    }
+    button {
+        width: 150px; height: 40px;
+        font-size: 100%;
+    }</style>
+</head>
+<body>
+    <p>需要使用http(s)协议访问本页面。</p>
+    <h3>基本功能测试</h3>
+
+    <p>下面应该显示一段列表：</p>
+    <link rel="import" href="./include/_section.html" is="ui-import">
+
+    <h3>load事件测试</h3>
+    <p>下面列表边框颜色应该是红色。</p>
+    <link rel="import" id="link1" href="./include/_section.html" is="ui-import">
+
+    <h3>出错提示</h3>
+    <p>不存在的地址，error事件</p>
+    <link rel="import" id="link2" href="./include/_whatever.html" is="ui-import">
+
+    <h3>动态加载测试</h3>
+    <p>按照提示进行测试。</p>
+    <ol>
+        <li>点击下面的按钮，预期显示一段列表；</li>
+        <li>刷新页面，打开Chrome控制台，设置offline，再点击按钮，预期显示网络异常。</li>
+    </ol>
+    <p>
+        <button id="b1">设置href属性</button>
+    </p>
+    <link rel="import" id="link3" is="ui-import">
+
+    <p>下面按钮点击后直接append一段 &lt;link&gt; html代码</p>
+    <p>
+        <button id="b2">插入&lt;link&gt;元素</button>
+    </p>
+
+    <script src="./safari-polyfill.js"></script>
+    <script src="./html-import.js"></script>
+    
+    <script>
+        link1.addEventListener('load', function () {
+            this.querySelector('section').style.borderColor = 'red';
+        });
+        link2.addEventListener('error', function (event) {
+            this.textContent = event.detail.error + '：' + event.detail.response.statusText;
+        });
+        b1.addEventListener('click', function () {
+            link3.href = link1.href;
+        });
+        link3.addEventListener('error', function (event) {
+            this.textContent =  '加载出错：' + event.detail.error;
+        });
+        b2.addEventListener('click', function () {
+            this.parentElement.insertAdjacentHTML('afterend', '<link rel="import" href="./include/_section.html" is="ui-import">');
+        });
+    </script>
+</body>
+</html>
