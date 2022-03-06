@@ -60,8 +60,3 @@ if (!customElements.get('ui-import')) {
     });
 }
 
-let container = document.querySelector(".nowar_banner_infomation");
-        container.addEventListener("wheel", (event) => {
-            event.preventDefault();
-            container.scrollLeft += event.deltaY;
-});

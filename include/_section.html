@@ -124,10 +124,12 @@
         }
     </style>
     <script>
-        let container = document.querySelector(".nowar_banner_infomation");
-        container.addEventListener("wheel", (event) => {
+        let nowar_banner_infomation = document.querySelector(
+            ".nowar_banner_infomation"
+        );
+        nowar_banner_infomation.addEventListener("wheel", (event) => {
             event.preventDefault();
-            container.scrollLeft += event.deltaY;
+            nowar_banner_infomation.scrollLeft += event.deltaY;
         });
     </script>
 </section>
