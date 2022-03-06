@@ -5,6 +5,10 @@
 
 #### 使用说明
 
+第一种方法：将 `/include/_section.html` 复制到你想添加的地方。
+
+第二种方法：
+
 `<link rel="import" href="./include/_section.html" is="ui-import">` 在想插入的地方导入
 
 ```
